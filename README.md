@@ -12,6 +12,8 @@ Just a small automation shell script to update Ubuntu systems daily/weekly with 
           |_|
  Author: G0urmetD
  Version: 1.0
+
+./updateUbuntu.sh
 ```
 ## Functionalities
 - config file
