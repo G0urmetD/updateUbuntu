@@ -13,3 +13,14 @@ Just a small automation shell script to update Ubuntu systems daily/weekly with 
  Author: G0urmetD
  Version: 1.0
 ```
+## Functionalities
+- config file
+  - set auto reboot
+  - set custom source lists
+- update apt packages
+- update snap packages
+- update flatpak packages
+- update npm packages
+- update pip/pip3 packages
+- update docker containers
+- update kernel
