@@ -11,7 +11,7 @@ Just a small automation shell script to update Ubuntu systems daily/weekly with 
           | |
           |_|
  Author: G0urmetD
- Version: 1.0
+ Version: 1.1
 
 ./updateUbuntu.sh
 ```
@@ -25,4 +25,5 @@ Just a small automation shell script to update Ubuntu systems daily/weekly with 
 - update npm packages
 - update pip/pip3 packages
 - update docker containers
+- update docker-compose
 - update kernel
