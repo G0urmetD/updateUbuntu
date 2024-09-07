@@ -22,7 +22,7 @@ function print_banner() {
     echo "          | |                                                          "
     echo "          |_|                                                          "
     echo " Author: G0urmetD"
-    echo " Version: 1.0"
+    echo " Version: 1.1"
     echo -e "${NC}"
 }
 
@@ -131,6 +131,17 @@ function update_docker_containers() {
     fi
 }
 
+# check for docker-compose updates
+function update_docker_compose() {
+    if command -v docker compose version &> /dev/null
+    then
+        echo -e "${YELLOW}=== Updating docker-compose ===${NC}"
+        sudo apt-get install docker-compose-plugin
+    else
+        echo -e "${RED}docker-compose is not installed, skipping this step.${NC}"
+    fi
+}
+
 # check for kernel updates
 function update_kernel() {
     echo -e "${YELLOW}=== Checking and updating Kernel ===${NC}"
@@ -160,6 +171,7 @@ function main() {
     update_npm_packages
     update_pip_packages
     update_docker_containers
+    update_docker_compose
     update_kernel
     
     # if a custom paketlist is provided
