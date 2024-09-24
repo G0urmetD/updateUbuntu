@@ -11,7 +11,7 @@ Just a small automation shell script to update Ubuntu systems daily/weekly with 
           | |
           |_|
  Author: G0urmetD
- Version: 1.4
+ Version: 1.4.1
 
 ./updateUbuntu.sh
 ./updateUbuntu.sh --upgrade-version
@@ -21,7 +21,6 @@ Just a small automation shell script to update Ubuntu systems daily/weekly with 
 - config file
   - set auto reboot
   - set custom source lists
-- checking internet connection
 - checking whether sufficient storage space is available and whether the file systems are in order
 - creating a simple snapshot of system files
   - deleting automatically snapshots of backup path, which are older than 4 weeks
