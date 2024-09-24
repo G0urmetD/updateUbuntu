@@ -161,8 +161,28 @@ function reboot_reminder() {
     fi
 }
 
+# version upgrade (example: 22.04 to 24.04)
+function version_upgrade() {
+    echo -e "${YELLOW}=== Starting Ubuntu version upgrade ===${NC}"
+    sudo do-release-upgrade -f DistUpgradeViewNonInteractive
+}
+
 # main function
 function main() {
+    local version_upgrade_flag=false
+
+    while [[ "$1" != "" ]]; do
+        case $1 in
+            --upgrade-version)
+                version_upgrade_flag=true
+                ;;
+            *)
+                custom_package_list="$1"
+                ;;
+        esac
+        shift
+    done
+
     print_banner
     load_config
     update_apt_packages
@@ -174,14 +194,16 @@ function main() {
     update_docker_compose
     update_kernel
     
-    # if a custom paketlist is provided
-    if [ -n "$1" ]; then
-        process_custom_package_list "$1"
+    if [ -n "$custom_package_list" ]; then
+        process_custom_package_list "$custom_package_list"
+    fi
+
+    if [ "$version_upgrade_flag" = true ]; then
+        version_upgrade
     fi
     
     reboot_reminder
     echo -e "${GREEN}=== All updates completed! ===${NC}"
 }
 
-# starting the script with calling the main function
 main "$@"
