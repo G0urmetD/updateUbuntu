@@ -22,7 +22,7 @@ function print_banner() {
     echo "          | |                                                          "
     echo "          |_|                                                          "
     echo " Author: G0urmetD"
-    echo " Version: 1.1"
+    echo " Version: 1.2"
     echo -e "${NC}"
 }
 
