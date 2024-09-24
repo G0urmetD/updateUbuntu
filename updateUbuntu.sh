@@ -25,7 +25,7 @@ function print_banner() {
     echo "          | |                                                          "
     echo "          |_|                                                          "
     echo " Author: G0urmetD"
-    echo " Version: 1.4"
+    echo " Version: 1.4.1"
     echo -e "${NC}"
 }
 
@@ -38,17 +38,6 @@ function load_config() {
         echo -e "${RED}[ERR] Configuration file not found! Using default settings.${NC}"
         auto_reboot=false
         custom_sources=false
-    fi
-}
-
-# Internet connection check
-function check_internet_connection() {
-    echo -e "${YELLOW}=== Checking internet connection ===${NC}"
-    if ping -c 1 google.com &> /dev/null; then
-        echo -e "${GREEN}[+] Internet connection is active.${NC}"
-    else
-        echo -e "${RED}[ERR] No internet connection detected. Exiting.${NC}"
-        exit 1
     fi
 }
 
@@ -273,7 +262,6 @@ function main() {
 
     # If --upgrade-version is passed, only run the following
     if [ "$version_upgrade_flag" = true ]; then
-        check_internet_connection
         update_apt_packages
         version_upgrade
         exit 0
@@ -286,7 +274,6 @@ function main() {
     fi
 
     # Full process otherwise
-    check_internet_connection
     system_check
 
     # Step 1: Delete old backups
