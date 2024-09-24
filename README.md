@@ -11,9 +11,10 @@ Just a small automation shell script to update Ubuntu systems daily/weekly with 
           | |
           |_|
  Author: G0urmetD
- Version: 1.1
+ Version: 1.2
 
 ./updateUbuntu.sh
+./updateUbuntu.sh --upgrade-version
 ```
 ## Functionalities
 - config file
@@ -27,3 +28,4 @@ Just a small automation shell script to update Ubuntu systems daily/weekly with 
 - update docker containers
 - update docker-compose
 - update kernel
+- version upgrade (example: 22.04 to 24.04)
